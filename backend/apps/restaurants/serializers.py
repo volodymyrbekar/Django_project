@@ -3,7 +3,7 @@ from versatileimagefield.serializers import VersatileImageFieldSerializer
 from .models import Restaurant, RestaurantImage
 
 
-class RestaurantImageSerializer(serializers.ModelSerializer):
+class RestaurantImageSerializer(ModelSerializer):
     class Meta:
         model = RestaurantImage
         fields = '__all__'
@@ -19,7 +19,7 @@ class RestaurantImageSerializer(serializers.ModelSerializer):
 
 
 class RestaurantSerializer(ModelSerializer):
-    image = RestaurantImageSerializer(source='restaurantimage_set', many=False)
+    image = RestaurantImageSerializer(source='restaurantimage_set', many=True)
 
     class Mata:
         model = Restaurant
